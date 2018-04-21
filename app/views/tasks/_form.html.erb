@@ -1,0 +1,30 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class:"form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :done %><br>
+    <%= f.check_box :done, class:"checkbox"%>
+  </div>
+  <div class="form-inline">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date, { prompt: {hour: 'Hour', minute: 'Minutes'}, minute_step: 5, :order => [:day, :month, :year] }, { class: 'form-control' } %>
+  </div>
+    <br>
+    <div class="form-group">
+      <%= f.submit texto_da_acao, class: "btn btn-info"%>
+    <div>
+<% end %>

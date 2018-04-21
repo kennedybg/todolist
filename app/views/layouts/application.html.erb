@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Todo List</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= nav_bar brand: "My Todo List", brand_link: root_url do%>
+    <%= form_tag destroy_user_session_path, method: :delete,class: "navbar-form navbar-right" do%>
+
+    <div class="form-group">
+      <% if user_signed_in? %>
+        <div class="form-inline">
+          <%= label_tag current_user.email%>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-warning", data: {confirm: "Are you sure?"} %>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  <% end %>
+    <div class="container">
+        <%= yield %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @task.done %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @task.date %>
+</p>
+
+<%= link_to 'Back', tasks_path, class: "btn btn-warning" %>
